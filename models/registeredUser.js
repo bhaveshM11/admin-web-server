@@ -1,19 +1,15 @@
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
+    userId : {
+        type:Number,
+        required:false
+    },
    email:{
         type:String,
         required:true
     },
-    phone:{
-        type:String,
-        required:true
-    },
-    fullname:{
-        type:String,
-        required:true
-    },
-    username:{
+    name:{
         type:String,
         required:true
     },
@@ -21,8 +17,13 @@ const UserSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    createdOn: { 
+        type: Date,
+        default: Date.now 
+    }
 })
 
-const UserData = new mongoose.model('InstagramUsers' , UserSchema)
+
+const UserData = new mongoose.model('Users' , UserSchema)
 
 module.exports = UserData;
